@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Chequeador de Dispositivos</string>
+    <string name="checkFlash">Flash</string>
+    <string name="checkCD">CamaraDelantera</string>
+    <string name="checkCT">CamaraTrasera</string>
+    <string name="checkGps">GPS</string>
+    <string name="checkVolumen">Volumen</string>
+    <string name="flash">Flash</string>
+    <string name="camara_frontal">Camara Frontal</string>
+    <string name="camara_trasera">Camara Trasera</string>
+    <string name="gps">GPS</string>
+    <string name="parlante">Parlante</string>
+    <string name="checkeador_de_dispositivos">Checkeador de Dispositivos</string>
+</resources>
