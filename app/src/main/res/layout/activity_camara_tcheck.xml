@@ -9,10 +9,10 @@
     <TextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/textureViewCF" />
+        android:id="@+id/textureViewCT" />
 
     <Button
-        android:id="@+id/btnCapturaD"
+        android:id="@+id/CapturaT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Captura"
