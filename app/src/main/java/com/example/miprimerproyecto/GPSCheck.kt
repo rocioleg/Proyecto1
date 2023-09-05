@@ -1,11 +1,19 @@
 package com.example.miprimerproyecto
 
 import android.Manifest
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
+import android.view.View
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -34,10 +42,47 @@ class GPSCheck : AppCompatActivity(), OnMapReadyCallback {
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        getlocalizacion();
+        getlocalizacion()
+
+        if(checkIfGPSIsEnabled()){ run {
+            val alertDialog1 = AlertDialog.Builder(this)
+                // Establecer ícono
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                // Establecer título
+                .setTitle("Mensaje")
+                // Establecer mensaje
+                .setMessage("Su dispositivo cuenta con GPS")
+                // Establecer botón positivo
+                .setPositiveButton("Ok") { dialogInterface, _ ->
+                    // Lo que sucederá cuando se haga clic en el botón positivo
+                    //finish()
+                }.show()
+        }}else{ run {
+            val alertDialog2 = AlertDialog.Builder(this)
+                // Establecer ícono
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                // Establecer título
+                .setTitle("Mensaje")
+                // Establecer mensaje
+                .setMessage("Su dispositivo NO cuenta con GPS")
+                // Establecer botón positivo
+                .setPositiveButton("Ok") { dialogInterface, _ ->
+                    finish()
+                }.show()
+        }
+        }
     }
 
-    private fun getlocalizacion() {
+    fun checkIfGPSIsEnabled(): Boolean {
+
+        val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+
+    }
+
+
+    fun getlocalizacion() {
         val permiso =
             ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
         if (permiso == PackageManager.PERMISSION_DENIED) {
@@ -98,4 +143,5 @@ class GPSCheck : AppCompatActivity(), OnMapReadyCallback {
             locationListener
         )
     }
+
 }
