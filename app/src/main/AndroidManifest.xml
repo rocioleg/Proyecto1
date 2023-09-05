@@ -7,9 +7,12 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.ACCEPT_CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.hardware.location.gps" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,9 +24,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiPrimerProyecto"
         tools:targetApi="31">
+
+        <!--
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCI3xB44rZRb0Wnoc2cZ3OMwKshxkcRBbw" />
+
         <activity
             android:name=".GPSCheck"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/title_activity_gpscheck" />
         <activity
             android:name=".ParlanteCheck"
             android:exported="false" />
@@ -36,8 +54,7 @@
         <activity
             android:name=".FlashCheck"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            />
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -11,4 +11,6 @@
     <string name="gps">GPS</string>
     <string name="parlante">Parlante</string>
     <string name="checkeador_de_dispositivos">Checkeador de Dispositivos</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_gpscheck">GPSCheck</string>
 </resources>

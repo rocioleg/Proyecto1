@@ -1,9 +1,12 @@
 package com.example.miprimerproyecto
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraManager
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Button
 import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.Toast
@@ -19,7 +22,7 @@ class FlashCheck : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flash_check)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         flashControl = findViewById(R.id.switchFlashLight)
         cameraManager = getSystemService(CAMERA_SERVICE) as CameraManager
@@ -55,5 +58,25 @@ class FlashCheck : AppCompatActivity() {
                 }
             }
         }
+
+        val btnVolver: Button = findViewById(R.id.btnVolverF)
+
+        btnVolver.setOnClickListener() {
+            // Apagar el flash si está encendido
+            if (flashControl.isChecked) {
+                try {
+                    cameraManager.setTorchMode("0", false)
+                    flashControl.isChecked = false
+                    flashControl.text = "Flash OFF"
+                } catch (e: CameraAccessException) {
+                    e.printStackTrace()
+                }
+            }
+
+            // Iniciar la nueva actividad
+            val intento1 = Intent(this, MainActivity::class.java)
+            startActivity(intento1)
+        }
+
     }
 }
