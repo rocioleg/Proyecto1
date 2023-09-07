@@ -48,7 +48,8 @@ class GPSCheckMain : AppCompatActivity() {
         }
 
         botonVolver.setOnClickListener(){
-            finish()
+            val intento1 = Intent(this, MainActivity::class.java)
+            startActivity(intento1)
         }
 
         botonVerMapa.setOnClickListener(){
@@ -67,6 +68,11 @@ class GPSCheckMain : AppCompatActivity() {
         bolGPSSupported = myPackageManager.hasSystemFeature(PackageManager.FEATURE_LOCATION);
 
         return bolGPSSupported
+    }
+
+    override fun onBackPressed(){
+        val intento1 = Intent(this, MainActivity::class.java)
+        startActivity(intento1)
     }
 
 }
