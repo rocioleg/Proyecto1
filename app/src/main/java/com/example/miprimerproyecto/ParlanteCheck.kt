@@ -2,6 +2,7 @@ package com.example.miprimerproyecto
 
 import android.content.Intent
 import android.graphics.Color
+import android.hardware.camera2.CameraAccessException
 import android.media.AudioDeviceInfo
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -26,6 +27,13 @@ class ParlanteCheck : AppCompatActivity() {
         val btnStop: Button = findViewById(R.id.btnStop)
 
         val textView: TextView = findViewById(R.id.mensaje)
+
+        val btnVolver: Button = findViewById(R.id.btnVolverAURI)
+
+        btnVolver.setOnClickListener() {
+            val intento1 = Intent(this, MainActivity::class.java)
+            startActivity(intento1)
+        }
 
         if(auricularesConectados()){
             textView.text ="¡Auriculares detectados!"
@@ -87,11 +95,6 @@ class ParlanteCheck : AppCompatActivity() {
             }
         }
         return false
-    }
-
-    fun volver(){
-        val intento1 = Intent(this, MainActivity::class.java)
-        startActivity(intento1)
     }
 
 }

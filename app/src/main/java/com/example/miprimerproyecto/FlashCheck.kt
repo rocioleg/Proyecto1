@@ -77,6 +77,19 @@ class FlashCheck : AppCompatActivity() {
             val intento1 = Intent(this, MainActivity::class.java)
             startActivity(intento1)
         }
+    }
 
+    override fun onBackPressed() {
+        if (flashControl.isChecked) {
+            try {
+                cameraManager.setTorchMode("0", false)
+                flashControl.isChecked = false
+                flashControl.text = "Flash OFF"
+            } catch (e: CameraAccessException) {
+                e.printStackTrace()
+            }
+        }
+        val intento1 = Intent(this, MainActivity::class.java)
+        startActivity(intento1)
     }
 }

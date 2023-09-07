@@ -10,7 +10,7 @@
         android:id="@+id/textInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="5dp"
         android:text="@string/checkeador_de_dispositivos"
         android:textColor="#009688"
         android:textSize="24sp"
@@ -20,6 +20,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.116" />
+
+    <Button
+        android:id="@+id/flash"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="150dp"
+        android:text="Flash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#FFFFFF" />
+
+
+    <Button
+        android:id="@+id/camaraf"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="250dp"
+        android:text="Camara Frontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/camarat"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="350dp"
+        android:text="Camara Trasera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/gps"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="450dp"
+        android:text="GPS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/auriculares"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="550dp"
+        android:text="Auriculares"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

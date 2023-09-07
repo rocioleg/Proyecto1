@@ -69,13 +69,12 @@
         app:layout_constraintTop_toBottomOf="@+id/btnPause" />
 
     <Button
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnVolverAURI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:onClick="volver"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/btnVolver"
+        app:layout_constraintBottom_toTopOf="@+id/btnVolverAURI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStop" />

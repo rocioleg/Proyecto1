@@ -69,15 +69,20 @@ class GPSCheck : AppCompatActivity(), OnMapReadyCallback {
                 .setPositiveButton("Ok") { dialogInterface, _ ->
                     finish()
                 }.show()
-        }
-        }
+        }}
     }
 
     fun checkIfGPSIsEnabled(): Boolean {
-
+        /*
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
         return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+         */
+        val myPackageManager: PackageManager = packageManager
+        val bolGPSSupported: Boolean
+
+        bolGPSSupported = myPackageManager.hasSystemFeature(PackageManager.FEATURE_LOCATION_GPS);
+
+        return bolGPSSupported
 
     }
 
