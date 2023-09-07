@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         gps.setOnClickListener {
-            val intent = Intent(this, GPSCheck::class.java)
+            val intent = Intent(this, GPSCheckMain::class.java)
             startActivity(intent)
         }
         auricular.setOnClickListener {

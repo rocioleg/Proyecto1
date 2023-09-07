@@ -74,8 +74,11 @@ class FlashCheck : AppCompatActivity() {
             }
 
             // Iniciar la nueva actividad
+            /*
             val intento1 = Intent(this, MainActivity::class.java)
             startActivity(intento1)
+             */
+            finish()
         }
     }
 
@@ -89,7 +92,10 @@ class FlashCheck : AppCompatActivity() {
                 e.printStackTrace()
             }
         }
+        /*
         val intento1 = Intent(this, MainActivity::class.java)
         startActivity(intento1)
+        */
+        finish()
     }
 }

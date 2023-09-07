@@ -20,6 +20,7 @@ import android.view.Surface
 import android.view.TextureView
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import java.io.File
 import java.io.FileOutputStream
 
@@ -77,11 +78,24 @@ class CamaraTCheck : AppCompatActivity() {
             }
         }
 
-        if (hasFrontCamera()) {
+        if (hasBackCamera()) {
 
             textureView.surfaceTextureListener = object : TextureView.SurfaceTextureListener {
                 override fun onSurfaceTextureAvailable(p0: SurfaceTexture, p1: Int, p2: Int) {
-                    open_camera()
+
+                    //Abro Dialog
+                    run {
+                        val alertDialog1 = AlertDialog.Builder(this@CamaraTCheck)
+
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setTitle("Mensaje")
+                            .setMessage("Su dispositivo tiene camara trasera")
+                            .setPositiveButton("Ok") { dialogInterface, _ ->
+                                //finish()
+                                open_camera()
+                            }.show()
+                    }
+                    //
                 }
 
                 override fun onSurfaceTextureSizeChanged(p0: SurfaceTexture, p1: Int, p2: Int) {
@@ -96,18 +110,38 @@ class CamaraTCheck : AppCompatActivity() {
 
             }
         } else {
+            // Abro dialogo
             //
-            Toast.makeText(this, "No se encontró una cámara trasera.", Toast.LENGTH_SHORT).show()
+            run {
+                val alertDialog2 = AlertDialog.Builder(this)
+
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Mensaje")
+                    .setMessage("Su dispositivo NO cuenta con camara trasera")
+                    .setPositiveButton("Volver") { dialogInterface, _ ->
+                        finish()
+                    }.show()
+            }
+            //
+            //
         }
 
+        // Para volver
 
+        val btnVolver: Button = findViewById(R.id.btnVolverCT)
 
+        btnVolver.setOnClickListener(){
+            finish()
+        }
 
+        //
+    }
+
+    override fun onBackPressed(){
+        finish()
     }
 
     @SuppressLint("MissingPermission")
-
-
     fun open_camera() {
 
         cameraManager.openCamera(
@@ -179,7 +213,7 @@ class CamaraTCheck : AppCompatActivity() {
         }
     }
 
-    private fun hasFrontCamera(): Boolean {
+    private fun hasBackCamera(): Boolean {
         val manager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
         for (cameraId in manager.cameraIdList) {
             val characteristics = manager.getCameraCharacteristics(cameraId)
@@ -189,6 +223,15 @@ class CamaraTCheck : AppCompatActivity() {
             }
         }
         return false // No hay cámara trasera disponible.
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // Liberar la cámara
+        if (cameraDevice != null) {
+            cameraDevice.close()
+        }
     }
 
 }

@@ -10,10 +10,14 @@
         android:id="@+id/textInicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="24dp"
+        android:shadowColor="#171515"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
         android:text="@string/checkeador_de_dispositivos"
         android:textColor="#009688"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,57 +25,59 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.116" />
 
+
     <Button
         android:id="@+id/flash"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="150dp"
+
+        android:layout_marginTop="36dp"
         android:text="Flash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInicio"
         app:rippleColor="#FFFFFF" />
-
 
     <Button
         android:id="@+id/camaraf"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="25dp"
         android:text="Camara Frontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/camarat" />
 
     <Button
         android:id="@+id/camarat"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="25dp"
         android:text="Camara Trasera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/auriculares" />
 
     <Button
         android:id="@+id/gps"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="25dp"
         android:text="GPS"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/camaraf" />
 
     <Button
         android:id="@+id/auriculares"
         android:layout_width="150dp"
         android:layout_height="80dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="25dp"
         android:text="Auriculares"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flash" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

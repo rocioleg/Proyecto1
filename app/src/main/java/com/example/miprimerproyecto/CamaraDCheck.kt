@@ -20,8 +20,10 @@ import android.view.Surface
 import android.view.TextureView
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import java.io.File
 import java.io.FileOutputStream
+
 
 class CamaraDCheck : AppCompatActivity() {
 
@@ -54,7 +56,17 @@ class CamaraDCheck : AppCompatActivity() {
 
             textureView.surfaceTextureListener = object: TextureView.SurfaceTextureListener{
             override fun onSurfaceTextureAvailable(p0: SurfaceTexture, p1: Int, p2: Int) {
-                open_camera()
+                run {
+                    val alertDialog1 = AlertDialog.Builder(this@CamaraDCheck)
+
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Mensaje")
+                        .setMessage("Su dispositivo tiene camara frontal")
+                        .setPositiveButton("Ok") { dialogInterface, _ ->
+                            //finish()
+                            open_camera()
+                        }.show()
+                }
             }
 
             override fun onSurfaceTextureSizeChanged(p0: SurfaceTexture, p1: Int, p2: Int) {
@@ -69,7 +81,17 @@ class CamaraDCheck : AppCompatActivity() {
 
         }} else {
             //
-            Toast.makeText(this, "No se encontró una cámara frontal.", Toast.LENGTH_SHORT).show()
+            run {
+                val alertDialog2 = AlertDialog.Builder(this)
+
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Mensaje")
+                    .setMessage("Su dispositivo NO cuenta con camara frontal")
+                    .setPositiveButton("Volver") { dialogInterface, _ ->
+                        finish()
+                    }.show()
+            }
+            //
         }
 
         imageReader = ImageReader.newInstance(1080,1920, ImageFormat.JPEG, 1)
@@ -101,6 +123,15 @@ class CamaraDCheck : AppCompatActivity() {
                 cameraCaptureSession.capture(capReq.build(),null,null)
             }
         }
+
+        // Para volver
+        val btnVolver: Button = findViewById(R.id.btnVolverCD)
+
+        btnVolver.setOnClickListener(){
+            finish()
+        }
+        //
+
     }
 
     @SuppressLint("MissingPermission")
@@ -177,6 +208,15 @@ class CamaraDCheck : AppCompatActivity() {
             }
         }
         return false // No hay cámara frontal disponible.
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        // Liberar la cámara
+        if (cameraDevice != null) {
+            cameraDevice.close()
+        }
     }
 
 

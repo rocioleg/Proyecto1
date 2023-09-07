@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#B1BCBB"
-    tools:context=".FlashCheck">
+    tools:context=".GPSCheckMain">
 
     <TextView
-        android:id="@+id/txtCheckFlash"
+        android:id="@+id/txtCheckGPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chequea tu Flash"
+        android:text="Chequea tu GPS"
         android:textColor="#009688"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -19,32 +18,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <Switch
-        android:id="@+id/switchFlashLight"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:enabled="false"
-        android:text="Flash OFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCheckFlash"
-        app:layout_constraintVertical_bias="0.153"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        app:layout_constraintVertical_bias="0.356" />
 
     <Button
-        android:id="@+id/btnVolverF"
+        android:id="@+id/btnCheckGPSMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:backgroundTint="#6DD071"
-        android:text="Volver"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#758C8A"
+        android:text="Check"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchFlashLight" />
+        app:layout_constraintTop_toBottomOf="@+id/txtCheckGPS" />
+
+    <Button
+        android:id="@+id/btnVerMapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Ver Mapa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckGPSMain"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btnVolverCGM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
